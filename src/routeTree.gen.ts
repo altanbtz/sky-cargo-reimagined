@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as HakkimizdaRouteImport } from './routes/hakkimizda'
+import { Route as HizmetlerRouteImport } from './routes/hizmetler'
+import { Route as IletisimRouteImport } from './routes/iletisim'
+import { Route as OtogarKargoRouteImport } from './routes/otogar-kargo'
+import { Route as RotalarRouteImport } from './routes/rotalar'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HakkimizdaRoute = HakkimizdaRouteImport.update({
+  id: '/hakkimizda',
+  path: '/hakkimizda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HizmetlerRoute = HizmetlerRouteImport.update({
+  id: '/hizmetler',
+  path: '/hizmetler',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IletisimRoute = IletisimRouteImport.update({
+  id: '/iletisim',
+  path: '/iletisim',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OtogarKargoRoute = OtogarKargoRouteImport.update({
+  id: '/otogar-kargo',
+  path: '/otogar-kargo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RotalarRoute = RotalarRouteImport.update({
+  id: '/rotalar',
+  path: '/rotalar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
+  '/hakkimizda': typeof HakkimizdaRoute
+  '/hizmetler': typeof HizmetlerRoute
+  '/iletisim': typeof IletisimRoute
+  '/otogar-kargo': typeof OtogarKargoRoute
+  '/rotalar': typeof RotalarRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
+  '/hakkimizda': typeof HakkimizdaRoute
+  '/hizmetler': typeof HizmetlerRoute
+  '/iletisim': typeof IletisimRoute
+  '/otogar-kargo': typeof OtogarKargoRoute
+  '/rotalar': typeof RotalarRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
+  '/hakkimizda': typeof HakkimizdaRoute
+  '/hizmetler': typeof HizmetlerRoute
+  '/iletisim': typeof IletisimRoute
+  '/otogar-kargo': typeof OtogarKargoRoute
+  '/rotalar': typeof RotalarRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/blog'
+    | '/hakkimizda'
+    | '/hizmetler'
+    | '/iletisim'
+    | '/otogar-kargo'
+    | '/rotalar'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/blog'
+    | '/hakkimizda'
+    | '/hizmetler'
+    | '/iletisim'
+    | '/otogar-kargo'
+    | '/rotalar'
+  id:
+    | '__root__'
+    | '/'
+    | '/blog'
+    | '/hakkimizda'
+    | '/hizmetler'
+    | '/iletisim'
+    | '/otogar-kargo'
+    | '/rotalar'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlogRoute: typeof BlogRoute
+  HakkimizdaRoute: typeof HakkimizdaRoute
+  HizmetlerRoute: typeof HizmetlerRoute
+  IletisimRoute: typeof IletisimRoute
+  OtogarKargoRoute: typeof OtogarKargoRoute
+  RotalarRoute: typeof RotalarRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hakkimizda': {
+      id: '/hakkimizda'
+      path: '/hakkimizda'
+      fullPath: '/hakkimizda'
+      preLoaderRoute: typeof HakkimizdaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hizmetler': {
+      id: '/hizmetler'
+      path: '/hizmetler'
+      fullPath: '/hizmetler'
+      preLoaderRoute: typeof HizmetlerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/iletisim': {
+      id: '/iletisim'
+      path: '/iletisim'
+      fullPath: '/iletisim'
+      preLoaderRoute: typeof IletisimRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/otogar-kargo': {
+      id: '/otogar-kargo'
+      path: '/otogar-kargo'
+      fullPath: '/otogar-kargo'
+      preLoaderRoute: typeof OtogarKargoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rotalar': {
+      id: '/rotalar'
+      path: '/rotalar'
+      fullPath: '/rotalar'
+      preLoaderRoute: typeof RotalarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlogRoute: BlogRoute,
+  HakkimizdaRoute: HakkimizdaRoute,
+  HizmetlerRoute: HizmetlerRoute,
+  IletisimRoute: IletisimRoute,
+  OtogarKargoRoute: OtogarKargoRoute,
+  RotalarRoute: RotalarRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
